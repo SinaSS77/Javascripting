@@ -55,7 +55,7 @@ function buildTriangle(num) {
   for (let i = 1; i <= num; i++) {
     stringLine = stringLine + makeLine(i);
   }
-  return stringLine;
+  return stringLine + "\n";
 }
 
 console.log(buildTriangle(10));
@@ -71,7 +71,7 @@ let catSays = function (num) {
 };
 
 function catCall(callbackFunction) {
-  return "Hello " + callbackFunction(3);
+  return "Hello " + callbackFunction(3) + "\n";
 }
 
 console.log(catCall(catSays));
@@ -83,13 +83,13 @@ function movies(messageFunction, name) {
 }
 movies(function displayFavorite(movieName) {
   console.log("My favorite movie is " + movieName);
-}, "Finding Nemo");
+}, "Finding Nemo" + "\n");
 
 // a Function experession
 
 let cry = function crying() {
   let sound = "boohoo!";
-  return sound;
+  return sound + "\n";
 };
 
 console.log(cry())
@@ -104,5 +104,79 @@ emotions("happy", function laugh(num){
   for (let i = 1 ; i <=num ; i++){
       word += "ha";
   }
-  return word + "!";
+  return word + "!" + "\n";
 });
+
+// greeting simple function
+const sayhello = function (name){
+  return "Hello, "+ name;
+}
+
+const greeting = sayhello("Mark");
+console.log(greeting + "\n");
+
+// even numbers
+const isEven = function (number){
+  return number % 2 === 0;
+  }
+const ten = isEven (10);
+const eleven = isEven (11);
+
+console.log(ten);
+console.log(eleven);
+
+// chooseStation chalange:
+// Your function will receive an array of stations, where each station itself is an array with a name, a capacity, and a venue type.
+
+// In order for a station to be deemed appropriate, it must have a capacity of at least 20, and be a school or community centre.
+
+const stations = [
+  ['Big Bear Donair', 10, 'restaurant'],
+  ['Bright Lights Elementary', 50, 'school'],
+  ['Moose Mountain Community Centre', 45, 'community centre']
+];
+
+const chooseStations = function (array) {
+  let goodStation = [];
+  for(let i = 0; i < array.length ; i++){
+    
+      if (array[i][1] >= 20 && (array[i][2] == "school" || array[i][2] == "community centre")){
+        goodStation.push(array[i][0]);
+      }
+    
+  }
+  console.log(goodStation)
+  return goodStation;
+}
+
+chooseStations(stations);
+
+// finalPosition challenge
+/* the center of a grid lines(x,y) is (0,0) {so for example a movement to the north is like doing this movement(0,1  or to the west is like (-1,0)).
+now we want a function code thet if we implement it with passing this array :
+const moves = ['north', 'north', 'west', 'west', 'north', 'east','north']
+to it , The finalPosition function should return the array:
+
+[-1, 4]
+*/
+
+const finalPosition = function (moves){
+  let final = [0,0];
+  for (let item of moves){
+    if ( item == "north"){
+      final[1] += 1;
+    } else if ( item == "south"){
+      final[1] -= 1;
+    } else if ( item == "east"){
+      final[0] += 1 ;
+    } else {
+      final[0] -= 1 ;
+    }
+  }
+  return final + "\n";
+}
+
+const moves = ['north', 'north', 'west', 'west', 'north', 'east','north'];
+
+finalPosition(moves);
+console.log(finalPosition(moves))
