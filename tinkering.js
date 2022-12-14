@@ -306,5 +306,179 @@ function loopyLighthouse(range, multiples, words) {
 
 loopyLighthouse([15, 90], [2, 5], ["Batty", "Beacon"]);
 
+/*
+ * QUIZ REQUIREMENTS
+ * - Your code should have an object `facebookProfile`
+ * - The `facebookProfile` object should have the `name` (string), `friends` (number), and `messages` (array of strings) property
+ * - Your `facebookProfile` object should have the `postMessage()`, `deleteMessage()`, `addFriend()` and `removeFriend()` method
+ * - Carefully implement the desired functionality of each method, as decribed above
+ */
 
+// TIP -
+// In an array,
+// - addition at the end is done using push() method
+// - addition at a specific index is done using splice() method
+// - deletion from the beginning is done using pop() method
+// - deletion from a specific index is done using splice() method
 
+let facebookProfile = {
+  name: "Sina",
+  friends: 3,
+  messages: ["Hi", "Coding is wonderful"],
+  postMessage: function (message) {
+    facebookProfile.messages.push("message");
+  },
+  deleteMessage: function (index) {
+    facebookProfile.messages.splice(index, 1);
+  },
+  addFriend: function () {
+    facebookProfile.friends += 1;
+  },
+  removeFriend: function () {
+    facebookProfile.friends -= 1;
+  },
+};
+
+/* OBJECT and Function
+Our function will receive two arguments:
+
+The first argument, trash, is a string that will tell our function what type of item is being submitted.
+The second argument, bins, is an object containing three properties (waste, recycling, and compost), which hold some numerical value. Our function must increase the correct value in the bins object, and then return the newly updated object.*/
+
+function smartGarbage(trash, bins) {
+  switch (trash) {
+    case "waste":
+      bins.waste += 1;
+      break;
+    case "recycling":
+      bins.recycling += 1;
+      break;
+    case "compost":
+      bins.compost += 1;
+      break;
+  }
+  // return bins;
+  console.log(bins.waste, bins.recycling, bins.compost)
+}
+
+smartGarbage('recycling', { waste: 4, recycling: 2, compost: 5 });
+
+// Objects - Driving Mayor Daisy (Lighthouse labs challenge)
+const cars = [
+  {
+    time: 1568329654807,
+    speed: 40,
+  },
+  {
+    time: 1568329821632,
+    speed: 42,
+  },
+  {
+    time: 1568331115463,
+    speed: 35
+  }
+]
+const carPassing = function (cars, speedy){
+  let obj = {time: Date.now(), speed : speedy}
+  cars.push(obj);
+  return cars;
+}
+
+const speed = 38
+
+carPassing(cars, speed)
+console.log(cars)
+
+// We're rooting for you challenge
+
+// const judgeVegetable = function (vegetables, metric) {
+//   let checker = 0 ;
+//   let flag = 0 ; 
+//   if ( metric === "redness"){
+//     for (let i = 0 ; i < vegetables.length; i++){
+//       if (vegetables[i].redness > checker){
+//         checker = vegetables[i].redness;
+//         flag = i;
+        
+//         return vegetables[flag].submitter;
+        
+//       }
+//     }
+    
+//   }else if (metric === "plumpness"){
+//     for (let i = 0 ; i < vegetables.length; i++){
+//       if (vegetables[i].plumpness > checker){
+//         checker = vegetables[i].plumpness;
+//         flag = i;
+//         return vegetables[flag].submitter;
+        
+//       }
+//     }
+   
+//   }else{
+//     console.log("Please provide a valid amount for metric!");
+//   }
+  
+// };
+
+const judgeVegetable = function (vegetables, metric) {
+  let bestVeggie = vegetables[0];
+  for (let i = 0; i < vegetables.length; i++) {
+  if (vegetables[i][metric] > bestVeggie[metric]) {
+  bestVeggie = vegetables[i];
+  }
+  }
+  return bestVeggie.submitter;
+  };
+
+  //// Array.Sort ascending
+
+  let ad = [ 45, 58,64,12,78,324,54,215,24,15,85];
+  ad.sort(function(a,b){
+    return a-b
+  });
+  console.log(ad)
+
+/// descending
+  ad.sort(function(a,b){
+    return b-a
+  })
+
+  /// finding the higest value
+
+  ad.sort(function(a,b){
+    return b-a
+  })
+  let highest = ad[0];
+  console.log(highest);
+
+  /* IN THE HTML <img id='lhl-logo' src='https://cl.ly/2O3Y2w1R2j0v/Image%202016-07-20%20at%201.16.13%20PM.png' width='400' /> */
+
+document.getElementById('lhl-logo').width='200';
+const fun = function(){
+document.getElementById('lhl-logo').width='400';}
+setTimeout (fun,1000);
+
+// Sum the largest numbers
+
+const sumLargestNumbers = function (array) {
+  let result = [];
+  let length = array.length;
+    for(x=0 ; x< length; x++){
+      let container = array[0];
+      let position = 0;
+    for(let i = 0; i< array.length ; i++){
+      
+      if(container <= array[i]){
+        container = array[i]
+        position = i;
+      }
+    }
+  result.push(container);
+  array.splice(position,1);
+  }
+  return result[1]+result[0];
+  }
+  
+  console.log(sumLargestNumbers([10, 4, 34, 6, 92, 2]));
+  
